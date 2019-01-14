@@ -31,7 +31,7 @@
           // 初始化dom的位置 通过设置className
           dom.className = 'right';
           // DOM的通道是固定的 所以设置好top就不需要再改变了
-          dom.style.top = j * 20 + 'px';
+          dom.style.top = j * 2 + .5 + 'vw';
           // 放入改通道的DOM池
           doms.push(dom);
           // 每次到transition结束的时候 就是弹幕划出屏幕了 将DOM位置重置 再放回DOM池

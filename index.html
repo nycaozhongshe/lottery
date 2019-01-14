@@ -175,7 +175,7 @@
             width: 100%;
             color: #fff;
             overflow: hidden;
-            font-size: 14px;
+            font-size: 1.4vw;
             text-shadow: 1px 1px #000;
         }
 
@@ -183,15 +183,16 @@
             position: absolute;
             visibility: hidden;
             white-space: nowrap;
+            right: 0;
             /*left: 700px;*/
-            transform: translateX(700px);
+            transform: translateX(100vw);
         }
 
         .left {
             position: absolute;
             white-space: nowrap;
             user-select: none;
-            transition: transform 7s linear;
+            transition: transform 10s linear;
             /* 时间相同 越长的弹幕滑动距离越长 所以越快~ */
         }
     </style>
@@ -225,12 +226,16 @@
 
     <script type="text/javascript"
             src="js/zepto.js"></script>
+
+    <!-- <script src="https://cdn.bootcss.com/vue/0.12.5/vue.js"></script> -->
     <script type="text/javascript"
-            src="js/vue.js"></script>
+            src="/js/vue.js">
+    </script>
     <script type="text/javascript"
             src="js/tagcanvas.js"></script>
     <script type="text/javascript"
-            src="js/member.js"></script>
+            src="js/member.js">
+    </script>
     <script type="text/javascript"
             src="js/bulletScreen.js">
     </script>
@@ -301,6 +306,8 @@
             canvas.width = document.body.offsetWidth;
             canvas.height = document.body.offsetHeight;
             document.getElementById('main').appendChild(canvas);
+
+
             new Vue({
                 el: '#tools',
                 data: {
@@ -309,6 +316,8 @@
                     btns: [
                         12, 8, 5, 2, 1
                     ],
+
+
                     bg_music: {}
                 },
                 ready: function () {
@@ -317,12 +326,11 @@
                         textColour: null,
                         initial: speed(),
                         dragControl: 1,
-                        textHeight: 14
+                        textHeight: 14,
+                        lock: "x",
+                        offsetY: -60,
                     });
-
                     this.bg_music = document.getElementById("music");
-
-
                 },
                 methods: {
                     reset: function () {
