@@ -1,0 +1,23 @@
+{
+  "name": "lottery",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nycaozhongshe/lottery.git",
+  "author": "ayto <ayto_7@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "uglifyjs-webpack-plugin": "^2.1.1"
+  }
+}
