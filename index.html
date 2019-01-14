@@ -191,6 +191,9 @@
         <button class="pure-button button-warning"
                 v-on="click: reset">重置</button>
     </div>
+    <audio src="media/抽奖时候的音乐.mp3"
+           id="music"></audio>
+
     <script type="text/javascript"
             src="js/zepto.js"></script>
     <script type="text/javascript"
@@ -270,7 +273,8 @@
                     running: false,
                     btns: [
                         12, 8, 5, 2, 1
-                    ]
+                    ],
+                    bg_music: {}
                 },
                 ready: function () {
                     canvas.innerHTML = createHTML();
@@ -280,6 +284,10 @@
                         dragControl: 1,
                         textHeight: 14
                     });
+
+                    this.bg_music = document.getElementById("music");
+
+
                 },
                 methods: {
                     reset: function () {
@@ -295,6 +303,9 @@
                     },
                     toggle: function () {
                         if (this.running) {
+                            this.bg_music.pause();
+                            this.bg_music.currentTime = 0;
+
                             TagCanvas.SetSpeed('myCanvas', speed());
                             var ret = lottery(this.selected);
                             $('#result').css('display', 'block').html('<span>' + ret.join(
@@ -306,6 +317,9 @@
                             }, 300);
                             console.log(ret);
                         } else {
+                            this.bg_music.currentTime = 0;
+                            this.bg_music.play();
+
                             $('#result').css('display', 'none');
                             $('#main').removeClass('mask');
                             TagCanvas.SetSpeed('myCanvas', [5, 1]);
